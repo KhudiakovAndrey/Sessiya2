@@ -21,6 +21,7 @@ namespace Sessiya2
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.Workers". При необходимости она может быть перемещена или удалена.
             this.workersTableAdapter.Fill(this.dataSet1.Workers);
+            textBoxCodeWorker.Focus();
             label1.Text = @"Введите код сотрудника 
     для авторизации";
             loginbuttonWorker.Click += (s, a) => {

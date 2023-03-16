@@ -45,7 +45,7 @@ namespace Sessiya2
             this.ExitButton.Location = new System.Drawing.Point(223, 146);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(77, 31);
-            this.ExitButton.TabIndex = 7;
+            this.ExitButton.TabIndex = 3;
             this.ExitButton.Text = "Отмена";
             this.ExitButton.UseVisualStyleBackColor = true;
             // 
@@ -55,7 +55,7 @@ namespace Sessiya2
             this.textBoxCodeWorker.Location = new System.Drawing.Point(87, 108);
             this.textBoxCodeWorker.Name = "textBoxCodeWorker";
             this.textBoxCodeWorker.Size = new System.Drawing.Size(213, 32);
-            this.textBoxCodeWorker.TabIndex = 6;
+            this.textBoxCodeWorker.TabIndex = 1;
             // 
             // label1
             // 
@@ -75,7 +75,7 @@ namespace Sessiya2
             this.loginbuttonWorker.Location = new System.Drawing.Point(87, 146);
             this.loginbuttonWorker.Name = "loginbuttonWorker";
             this.loginbuttonWorker.Size = new System.Drawing.Size(129, 31);
-            this.loginbuttonWorker.TabIndex = 4;
+            this.loginbuttonWorker.TabIndex = 2;
             this.loginbuttonWorker.Text = "Авторизоваться";
             this.loginbuttonWorker.UseVisualStyleBackColor = true;
             // 
