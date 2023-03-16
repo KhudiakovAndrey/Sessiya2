@@ -20,7 +20,9 @@ namespace Sessiya2
         {
             FillRequestList();
             DivisionComboBox.MouseClick += (s, eMC) => { DivisionComboBox.Text = ""; FIOWorkerkComboBox.Text = ""; };
-            IDReqComboBox.SelectionChangeCommitted += (s, eSC) => { };
+            DivisionFilterComboBox.Click += (s, eDFC) => { DivisionFilterComboBox.Text = ""; };
+            TypeFilterComboBox.Click += (s, eTFC) => { TypeFilterComboBox.Text = ""; };
+            StatusFilterComboBox.Click += (s, eSFC) => { StatusFilterComboBox.Text = ""; };
 
         }
 
@@ -38,26 +40,21 @@ namespace Sessiya2
             this.purposeVisitTableAdapter.Fill(this.dataSet1.PurposeVisit);
 
             RequestListView.Items.Clear();
-            string[] items = new string[12];
+            string[] items = new string[6];
             DataRow TempRow;
-            foreach (DataRow RowCB in dataSet1.Request.Rows) { IDReqComboBox.Items.Add(RowCB["ID"].ToString()); }
+            //foreach(Data)
             foreach (DataRow RowCB in dataSet1.Division.Rows) { DivisionComboBox.Items.Add(RowCB["Title"].ToString()); }
             foreach (DataRow RowCB in dataSet1.Workers.Rows) { FIOWorkerkComboBox.Items.Add(RowCB["FIO"].ToString()); }
-            foreach (DataRow Row in dataSet1.Visitors.Rows)
+            foreach (DataRow Row in dataSet1.Request.Rows)
             {
-                fioClass.space_FIO(Row["FIO"].ToString());
-                fioClass.space_Pass(Row["DataPass"].ToString());
-                items[1] = fioClass.Surname;
-                items[2] = fioClass.Name;
-                items[3] = fioClass.LastName;
-                items[4] = Row["Phone"].ToString();
-                TempRow = Row.GetParentRow("FK_Visitors_Users1");
-                items[5] = TempRow["Email"].ToString();
-                items[6] = Row["Organization"].ToString();
-                items[7] = Row["Note"].ToString();
-                items[8] = Row["Birthday"].ToString();
-                items[9] = fioClass.series;
-                items[10] = fioClass.number;
+                TempRow = Row.GetParentRow("FK_Request_TypeRequest");
+                items[1] = TempRow["Title"].ToString();
+                items[2] = Row["Date"].ToString();
+                items[3] = Row["Time"].ToString();
+                TempRow = Row.GetParentRow("FK_Request_Users");
+                items[4] = TempRow["Login"].ToString();
+                TempRow = Row.GetParentRow("FK_Request_Status");
+                items[5] = TempRow["Title"].ToString();
                 ListViewItem it = new ListViewItem();
                 it.Text = Row["ID"].ToString();
                 it.SubItems.AddRange(items);
@@ -80,21 +77,30 @@ namespace Sessiya2
 
         }
 
-        private void RequestListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            //ulong ID_Visitor, ID_Division, ID_InfoPermit;
-            //DataRow[] UserRow = dataSet1.Visitors.Select("ID = '" + e.Item.SubItems[0].Text + "'");
-            //ID_Visitor = Convert.ToUInt16(UserRow[0]["ID_User"]);
-            //DataRow[] ReqRow = dataSet1.Request.Select("IDUser = '" + ID_Visitor + "'");
-            //ID_Division = Convert.ToUInt16(ReqRow[0]["IDDivision"]);
-            //ID_InfoPermit = Convert.ToUInt16(ReqRow[0]["ID_InfoPermit"]);
-        }
-
         void Msg(string line)
         {
             MessageBox.Show(line, "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void RequestListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            DataRow ReqRow = dataSet1.Request.Select("ID = '" + e.Item.SubItems[0].Text + "'")[0];
+            ulong ID_Visitor = Convert.ToUInt16(ReqRow["ID_Visitor"]);
+            DataRow VisitorRow = dataSet1.Visitors.Select("ID = '" + ID_Visitor + "'")[0];
+            fioClass.space_FIO(VisitorRow["FIO"].ToString());
+            SurnameTextBox.Text = fioClass.Surname;
+            NameTextBox.Text = fioClass.Name;
+            LastNameTextBox.Text = fioClass.LastName;
+            PhoneTextBox.Text = VisitorRow["Phone"].ToString();
+            DataRow UserRow = dataSet1.Users.Select("ID = '" + VisitorRow["ID_User"].ToString() + "'")[0];
+            EmailTextBox.Text = UserRow["Email"].ToString();
+            OrgTextBox.Text = VisitorRow["Organization"].ToString();
+            NoteTextBox.Text = VisitorRow["Note"].ToString();
+            BirthdayDateTimePicker.Value = Convert.ToDateTime(VisitorRow["Birthday"].ToString());
+            fioClass.space_Pass(VisitorRow["DataPass"].ToString());
+            SeriesTextBox.Text = fioClass.series;
+            NumberTextBox.Text = fioClass.number;
+        }
     }
 
 }
