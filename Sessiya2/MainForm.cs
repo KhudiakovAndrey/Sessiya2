@@ -15,9 +15,11 @@ namespace Sessiya2
         public MainForm()
         {
             InitializeComponent();
-        }        
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.InfoPermit". При необходимости она может быть перемещена или удалена.
+            this.infoPermitTableAdapter.Fill(this.dataSet1.InfoPermit);
             FillRequestList();
             DivisionComboBox.MouseClick += (s, eMC) => { DivisionComboBox.Text = ""; FIOWorkerkComboBox.Text = ""; };
             DivisionFilterComboBox.Click += (s, eDFC) => { DivisionFilterComboBox.Text = ""; };
@@ -49,8 +51,8 @@ namespace Sessiya2
             {
                 TempRow = Row.GetParentRow("FK_Request_TypeRequest");
                 items[1] = TempRow["Title"].ToString();
-                items[2] = Row["Date"].ToString();
-                items[3] = Row["Time"].ToString();
+                items[2] = Convert.ToDateTime(Row["Date"]).ToString("dd.MM.yyyy");
+                items[3] = Convert.ToDateTime(Row["Time"]).ToString("hh:mm:ss");
                 TempRow = Row.GetParentRow("FK_Request_Users");
                 items[4] = TempRow["Login"].ToString();
                 TempRow = Row.GetParentRow("FK_Request_Status");
@@ -85,7 +87,10 @@ namespace Sessiya2
         private void RequestListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             DataRow ReqRow = dataSet1.Request.Select("ID = '" + e.Item.SubItems[0].Text + "'")[0];
+            DataRow TempRow;
             ulong ID_Visitor = Convert.ToUInt16(ReqRow["ID_Visitor"]);
+            ulong ID_InfoPermit = Convert.ToUInt16(ReqRow["ID_InfoPermit"]);
+
             DataRow VisitorRow = dataSet1.Visitors.Select("ID = '" + ID_Visitor + "'")[0];
             fioClass.space_FIO(VisitorRow["FIO"].ToString());
             SurnameTextBox.Text = fioClass.Surname;
@@ -100,8 +105,22 @@ namespace Sessiya2
             fioClass.space_Pass(VisitorRow["DataPass"].ToString());
             SeriesTextBox.Text = fioClass.series;
             NumberTextBox.Text = fioClass.number;
-        }
-    }
 
+            DataRow InfoPermitRow = dataSet1.InfoPermit.Select($"ID = '{ID_InfoPermit}'")[0];
+            DateStartTextBox.Text = Convert.ToDateTime(InfoPermitRow["StartReq"]).ToString("dd.MM.yyyy");
+            DataFinishTextBox.Text = Convert.ToDateTime(InfoPermitRow["EndReq"]).ToString("dd.MM.yyyy");
+            TempRow = InfoPermitRow.GetParentRow("FK_InfoPermit_PurposeVisit");
+            PurposeVisitTextBox.Text = TempRow["Title"].ToString();
+
+            ulong ID_Division = Convert.ToUInt16(ReqRow["IDDivision"].ToString());
+            DataRow DivisionRow = dataSet1.Division.Select("ID = '" + ID_Division + "'")[0];
+            DataRow WorkerRow = dataSet1.Workers.Select("ID = '" + ID_Division + "'")[0];
+            DivisionComboBox.Text = DivisionRow["Title"].ToString();
+            TempRow = DivisionRow.GetParentRow("FK_Workers_Division");
+            FIOWorkerkComboBox.Text = WorkerRow["FIO"].ToString();
+        }
+
+
+    }
 }
 
