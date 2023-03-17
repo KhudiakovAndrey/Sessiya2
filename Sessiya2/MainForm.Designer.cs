@@ -35,15 +35,16 @@ namespace Sessiya2
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DivisionGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.PurposeVisitTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.DataFinishTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DateStartTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.VisitorsGroupBox = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.NumberTextBox = new System.Windows.Forms.TextBox();
             this.SeriesTextBox = new System.Windows.Forms.TextBox();
             this.NoteTextBox = new System.Windows.Forms.TextBox();
@@ -86,15 +87,15 @@ namespace Sessiya2
             this.usersTableAdapter = new Sessiya2.DataSet1TableAdapters.UsersTableAdapter();
             this.visitorsTableAdapter = new Sessiya2.DataSet1TableAdapters.VisitorsTableAdapter();
             this.workersTableAdapter = new Sessiya2.DataSet1TableAdapters.WorkersTableAdapter();
-            this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.StatusFilterComboBox = new System.Windows.Forms.ComboBox();
             this.DivisionFilterComboBox = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.TypeFilterComboBox = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.StatusFilterComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.TypeFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.infoPermitTableAdapter = new Sessiya2.DataSet1TableAdapters.InfoPermitTableAdapter();
             this.panel3.SuspendLayout();
             this.DivisionGroupBox.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -111,7 +112,6 @@ namespace Sessiya2
             // 
             // FIOWorkerkComboBox
             // 
-            this.FIOWorkerkComboBox.Enabled = false;
             this.FIOWorkerkComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.FIOWorkerkComboBox.FormattingEnabled = true;
             this.FIOWorkerkComboBox.Location = new System.Drawing.Point(12, 68);
@@ -155,7 +155,6 @@ namespace Sessiya2
             this.panel3.Controls.Add(this.DivisionComboBox);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Enabled = false;
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel3.Location = new System.Drawing.Point(6, 19);
             this.panel3.Name = "panel3";
@@ -173,15 +172,15 @@ namespace Sessiya2
             this.DivisionGroupBox.TabStop = false;
             this.DivisionGroupBox.Text = "Принимающая сторона";
             // 
-            // textBox3
+            // PurposeVisitTextBox
             // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox3.Location = new System.Drawing.Point(6, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(206, 22);
-            this.textBox3.TabIndex = 4;
+            this.PurposeVisitTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PurposeVisitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.PurposeVisitTextBox.Location = new System.Drawing.Point(6, 70);
+            this.PurposeVisitTextBox.Name = "PurposeVisitTextBox";
+            this.PurposeVisitTextBox.ReadOnly = true;
+            this.PurposeVisitTextBox.Size = new System.Drawing.Size(206, 22);
+            this.PurposeVisitTextBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -195,28 +194,27 @@ namespace Sessiya2
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.PurposeVisitTextBox);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.DataFinishTextBox);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.DateStartTextBox);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Enabled = false;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel2.Location = new System.Drawing.Point(3, 19);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(224, 111);
             this.panel2.TabIndex = 0;
             // 
-            // textBox2
+            // DataFinishTextBox
             // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox2.Location = new System.Drawing.Point(139, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(73, 22);
-            this.textBox2.TabIndex = 3;
+            this.DataFinishTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DataFinishTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.DataFinishTextBox.Location = new System.Drawing.Point(139, 13);
+            this.DataFinishTextBox.Name = "DataFinishTextBox";
+            this.DataFinishTextBox.ReadOnly = true;
+            this.DataFinishTextBox.Size = new System.Drawing.Size(73, 22);
+            this.DataFinishTextBox.TabIndex = 3;
             // 
             // label2
             // 
@@ -228,15 +226,15 @@ namespace Sessiya2
             this.label2.TabIndex = 3;
             this.label2.Text = "по";
             // 
-            // textBox1
+            // DateStartTextBox
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox1.Location = new System.Drawing.Point(27, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(76, 22);
-            this.textBox1.TabIndex = 1;
+            this.DateStartTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DateStartTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.DateStartTextBox.Location = new System.Drawing.Point(27, 13);
+            this.DateStartTextBox.Name = "DateStartTextBox";
+            this.DateStartTextBox.ReadOnly = true;
+            this.DateStartTextBox.Size = new System.Drawing.Size(76, 22);
+            this.DateStartTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -287,6 +285,16 @@ namespace Sessiya2
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(401, 306);
             this.panel1.TabIndex = 0;
+            // 
+            // BirthdayDateTimePicker
+            // 
+            this.BirthdayDateTimePicker.CalendarMonthBackground = System.Drawing.SystemColors.ScrollBar;
+            this.BirthdayDateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.DarkGray;
+            this.BirthdayDateTimePicker.Enabled = false;
+            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(115, 213);
+            this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
+            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(171, 23);
+            this.BirthdayDateTimePicker.TabIndex = 20;
             // 
             // NumberTextBox
             // 
@@ -601,16 +609,6 @@ namespace Sessiya2
             // 
             this.workersTableAdapter.ClearBeforeFill = true;
             // 
-            // BirthdayDateTimePicker
-            // 
-            this.BirthdayDateTimePicker.CalendarMonthBackground = System.Drawing.SystemColors.ScrollBar;
-            this.BirthdayDateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.DarkGray;
-            this.BirthdayDateTimePicker.Enabled = false;
-            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(115, 213);
-            this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
-            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(171, 23);
-            this.BirthdayDateTimePicker.TabIndex = 20;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel4);
@@ -621,6 +619,29 @@ namespace Sessiya2
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтр заявок";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.StatusFilterComboBox);
+            this.panel4.Controls.Add(this.DivisionFilterComboBox);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.TypeFilterComboBox);
+            this.panel4.Location = new System.Drawing.Point(7, 19);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(278, 147);
+            this.panel4.TabIndex = 0;
+            // 
+            // StatusFilterComboBox
+            // 
+            this.StatusFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatusFilterComboBox.FormattingEnabled = true;
+            this.StatusFilterComboBox.Location = new System.Drawing.Point(3, 118);
+            this.StatusFilterComboBox.Name = "StatusFilterComboBox";
+            this.StatusFilterComboBox.Size = new System.Drawing.Size(264, 24);
+            this.StatusFilterComboBox.TabIndex = 15;
+            this.StatusFilterComboBox.Text = "Выберите нужный статус заявки";
             // 
             // DivisionFilterComboBox
             // 
@@ -642,15 +663,15 @@ namespace Sessiya2
             this.label16.TabIndex = 10;
             this.label16.Text = "Подразделение:";
             // 
-            // TypeFilterComboBox
+            // label18
             // 
-            this.TypeFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TypeFilterComboBox.FormattingEnabled = true;
-            this.TypeFilterComboBox.Location = new System.Drawing.Point(3, 69);
-            this.TypeFilterComboBox.Name = "TypeFilterComboBox";
-            this.TypeFilterComboBox.Size = new System.Drawing.Size(264, 24);
-            this.TypeFilterComboBox.TabIndex = 13;
-            this.TypeFilterComboBox.Text = "Выберите нужный тип заявки";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label18.Location = new System.Drawing.Point(0, 98);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(106, 17);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Статус заявки:";
             // 
             // label17
             // 
@@ -662,44 +683,25 @@ namespace Sessiya2
             this.label17.TabIndex = 12;
             this.label17.Text = "Тип заявки:";
             // 
-            // StatusFilterComboBox
+            // TypeFilterComboBox
             // 
-            this.StatusFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusFilterComboBox.FormattingEnabled = true;
-            this.StatusFilterComboBox.Location = new System.Drawing.Point(3, 118);
-            this.StatusFilterComboBox.Name = "StatusFilterComboBox";
-            this.StatusFilterComboBox.Size = new System.Drawing.Size(264, 24);
-            this.StatusFilterComboBox.TabIndex = 15;
-            this.StatusFilterComboBox.Text = "Выберите нужный статус заявки";
+            this.TypeFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TypeFilterComboBox.FormattingEnabled = true;
+            this.TypeFilterComboBox.Location = new System.Drawing.Point(3, 69);
+            this.TypeFilterComboBox.Name = "TypeFilterComboBox";
+            this.TypeFilterComboBox.Size = new System.Drawing.Size(264, 24);
+            this.TypeFilterComboBox.TabIndex = 13;
+            this.TypeFilterComboBox.Text = "Выберите нужный тип заявки";
             // 
-            // label18
+            // infoPermitTableAdapter
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label18.Location = new System.Drawing.Point(0, 98);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(106, 17);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "Статус заявки:";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.StatusFilterComboBox);
-            this.panel4.Controls.Add(this.DivisionFilterComboBox);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.TypeFilterComboBox);
-            this.panel4.Location = new System.Drawing.Point(7, 19);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(278, 147);
-            this.panel4.TabIndex = 0;
+            this.infoPermitTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 360);
+            this.ClientSize = new System.Drawing.Size(1428, 506);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.RequestGroupBox);
             this.Controls.Add(this.DivisionGroupBox);
@@ -736,12 +738,12 @@ namespace Sessiya2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox DivisionGroupBox;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PurposeVisitTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox DataFinishTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox DateStartTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox VisitorsGroupBox;
         private System.Windows.Forms.Panel panel1;
@@ -796,5 +798,6 @@ namespace Sessiya2
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox TypeFilterComboBox;
+        private DataSet1TableAdapters.InfoPermitTableAdapter infoPermitTableAdapter;
     }
 }
