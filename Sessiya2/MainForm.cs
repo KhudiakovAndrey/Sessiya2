@@ -45,8 +45,10 @@ namespace Sessiya2
             string[] items = new string[6];
             DataRow TempRow;
             //foreach(Data)
-            foreach (DataRow RowCB in dataSet1.Division.Rows) { DivisionComboBox.Items.Add(RowCB["Title"].ToString()); }
-            foreach (DataRow RowCB in dataSet1.Workers.Rows) { FIOWorkerkComboBox.Items.Add(RowCB["FIO"].ToString()); }
+            foreach (DataRow RowCB in dataSet1.Division.Rows) { DivisionFilterComboBox.Items.Add(RowCB["Title"].ToString()); }
+            foreach (DataRow RowCB in dataSet1.TypeRequest.Rows) { TypeFilterComboBox.Items.Add(RowCB["Title"].ToString()); }
+            foreach (DataRow RowCB in dataSet1.Status.Rows) { StatusFilterComboBox.Items.Add(RowCB["Title"].ToString()); }
+
             foreach (DataRow Row in dataSet1.Request.Rows)
             {
                 TempRow = Row.GetParentRow("FK_Request_TypeRequest");
@@ -120,7 +122,83 @@ namespace Sessiya2
             FIOWorkerkComboBox.Text = WorkerRow["FIO"].ToString();
         }
 
+        private void DivisionFilterComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            RequestListView.Items.Clear();
+            string[] items = new string[6];
+            DataRow TempRow;
+            DataRow RowFilterDivision = dataSet1.Division.Select("Title ='" + DivisionFilterComboBox.SelectedItem + "'")[0];
+            ulong RowID_Division;
+            RowID_Division = Convert.ToUInt16(RowFilterDivision["ID"]);
+            foreach (DataRow RowsD in dataSet1.Request.Select("IDDivision= '" + RowID_Division + "'"))
+            {
+                TempRow = RowsD.GetParentRow("FK_Request_TypeRequest");
+                items[1] = TempRow["Title"].ToString();
+                items[2] = RowsD["Date"].ToString();
+                items[3] = RowsD["Time"].ToString();
+                TempRow = RowsD.GetParentRow("FK_Request_Users");
+                items[4] = TempRow["Login"].ToString();
+                TempRow = RowsD.GetParentRow("FK_Request_Status");
+                items[5] = TempRow["Title"].ToString();
+                ListViewItem it = new ListViewItem();
+                it.Text = RowsD["ID"].ToString();
+                it.SubItems.AddRange(items);
+                RequestListView.Items.Add(it);
+            }
 
+        }
+
+        private void TypeFilterComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            RequestListView.Items.Clear();
+            string[] items = new string[6];
+            DataRow TempRow;
+            DataRow RowFilterType = dataSet1.TypeRequest.Select("Title ='" + TypeFilterComboBox.SelectedItem + "'")[0];
+            ulong RowID_Type;
+            RowID_Type = Convert.ToUInt16(RowFilterType["ID"]);
+            foreach (DataRow RowsD in dataSet1.Request.Select("IDType= '" + RowID_Type + "'"))
+            {
+                TempRow = RowsD.GetParentRow("FK_Request_TypeRequest");
+                items[1] = TempRow["Title"].ToString();
+                items[2] = RowsD["Date"].ToString();
+                items[3] = RowsD["Time"].ToString();
+                TempRow = RowsD.GetParentRow("FK_Request_Users");
+                items[4] = TempRow["Login"].ToString();
+                TempRow = RowsD.GetParentRow("FK_Request_Status");
+                items[5] = TempRow["Title"].ToString();
+                ListViewItem it = new ListViewItem();
+                it.Text = RowsD["ID"].ToString();
+                it.SubItems.AddRange(items);
+                RequestListView.Items.Add(it);
+            }
+
+        }
+
+        private void StatusFilterComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {            RequestListView.Items.Clear();
+            string[] items = new string[6];
+            DataRow TempRow;
+            DataRow RowFilterStatus = dataSet1.Status.Select("Title ='" + StatusFilterComboBox.SelectedItem + "'")[0];
+            ulong RowID_Status;
+            RowID_Status = Convert.ToUInt16(RowFilterStatus["ID"]);
+            foreach (DataRow RowsD in dataSet1.Request.Select("ID_Status= '" + RowID_Status + "'"))
+            {
+                TempRow = RowsD.GetParentRow("FK_Request_TypeRequest");
+                items[1] = TempRow["Title"].ToString();
+                items[2] = RowsD["Date"].ToString();
+                items[3] = RowsD["Time"].ToString();
+                TempRow = RowsD.GetParentRow("FK_Request_Users");
+                items[4] = TempRow["Login"].ToString();
+                TempRow = RowsD.GetParentRow("FK_Request_Status");
+                items[5] = TempRow["Title"].ToString();
+                ListViewItem it = new ListViewItem();
+                it.Text = RowsD["ID"].ToString();
+                it.SubItems.AddRange(items);
+                RequestListView.Items.Add(it);
+            }
+
+
+        }
     }
 }
 

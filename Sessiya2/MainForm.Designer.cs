@@ -642,6 +642,7 @@ namespace Sessiya2
             this.StatusFilterComboBox.Size = new System.Drawing.Size(264, 24);
             this.StatusFilterComboBox.TabIndex = 15;
             this.StatusFilterComboBox.Text = "Выберите нужный статус заявки";
+            this.StatusFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.StatusFilterComboBox_SelectionChangeCommitted);
             // 
             // DivisionFilterComboBox
             // 
@@ -652,6 +653,7 @@ namespace Sessiya2
             this.DivisionFilterComboBox.Size = new System.Drawing.Size(264, 24);
             this.DivisionFilterComboBox.TabIndex = 11;
             this.DivisionFilterComboBox.Text = "Выберите нужное подразделение";
+            this.DivisionFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.DivisionFilterComboBox_SelectionChangeCommitted);
             // 
             // label16
             // 
@@ -692,6 +694,7 @@ namespace Sessiya2
             this.TypeFilterComboBox.Size = new System.Drawing.Size(264, 24);
             this.TypeFilterComboBox.TabIndex = 13;
             this.TypeFilterComboBox.Text = "Выберите нужный тип заявки";
+            this.TypeFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.TypeFilterComboBox_SelectionChangeCommitted);
             // 
             // infoPermitTableAdapter
             // 
