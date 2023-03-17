@@ -91,6 +91,7 @@ namespace Sessiya2
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BlackListTableAdapter = null;
             this.tableAdapterManager.DepartmentTableAdapter = null;
             this.tableAdapterManager.DivisionTableAdapter = null;
             this.tableAdapterManager.GroupVisitorsTableAdapter = null;
@@ -114,7 +115,7 @@ namespace Sessiya2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginbuttonWorker);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);

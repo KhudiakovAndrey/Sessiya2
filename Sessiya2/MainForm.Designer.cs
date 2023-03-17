@@ -75,6 +75,15 @@ namespace Sessiya2
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.StatusFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.DivisionFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.TypeFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.CheckVisitorButton = new System.Windows.Forms.Button();
             this.dataSet1 = new Sessiya2.DataSet1();
             this.departmentTableAdapter = new Sessiya2.DataSet1TableAdapters.DepartmentTableAdapter();
             this.tableAdapterManager = new Sessiya2.DataSet1TableAdapters.TableAdapterManager();
@@ -87,15 +96,8 @@ namespace Sessiya2
             this.usersTableAdapter = new Sessiya2.DataSet1TableAdapters.UsersTableAdapter();
             this.visitorsTableAdapter = new Sessiya2.DataSet1TableAdapters.VisitorsTableAdapter();
             this.workersTableAdapter = new Sessiya2.DataSet1TableAdapters.WorkersTableAdapter();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.StatusFilterComboBox = new System.Windows.Forms.ComboBox();
-            this.DivisionFilterComboBox = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.TypeFilterComboBox = new System.Windows.Forms.ComboBox();
             this.infoPermitTableAdapter = new Sessiya2.DataSet1TableAdapters.InfoPermitTableAdapter();
+            this.blackListTableAdapter = new Sessiya2.DataSet1TableAdapters.BlackListTableAdapter();
             this.panel3.SuspendLayout();
             this.DivisionGroupBox.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,9 +107,9 @@ namespace Sessiya2
             this.InfoPermitGroupBox.SuspendLayout();
             this.RequestGroupBox.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // FIOWorkerkComboBox
@@ -548,6 +550,108 @@ namespace Sessiya2
             this.columnHeader30.Text = "Статус";
             this.columnHeader30.Width = 85;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.Location = new System.Drawing.Point(992, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(295, 165);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Фильтр заявок";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.StatusFilterComboBox);
+            this.panel4.Controls.Add(this.DivisionFilterComboBox);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.TypeFilterComboBox);
+            this.panel4.Location = new System.Drawing.Point(7, 19);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(278, 137);
+            this.panel4.TabIndex = 0;
+            // 
+            // StatusFilterComboBox
+            // 
+            this.StatusFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatusFilterComboBox.FormattingEnabled = true;
+            this.StatusFilterComboBox.Location = new System.Drawing.Point(3, 111);
+            this.StatusFilterComboBox.Name = "StatusFilterComboBox";
+            this.StatusFilterComboBox.Size = new System.Drawing.Size(264, 24);
+            this.StatusFilterComboBox.TabIndex = 15;
+            this.StatusFilterComboBox.Text = "Выберите нужный статус заявки";
+            this.StatusFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.StatusFilterComboBox_SelectionChangeCommitted);
+            // 
+            // DivisionFilterComboBox
+            // 
+            this.DivisionFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DivisionFilterComboBox.FormattingEnabled = true;
+            this.DivisionFilterComboBox.Location = new System.Drawing.Point(3, 16);
+            this.DivisionFilterComboBox.Name = "DivisionFilterComboBox";
+            this.DivisionFilterComboBox.Size = new System.Drawing.Size(264, 24);
+            this.DivisionFilterComboBox.TabIndex = 11;
+            this.DivisionFilterComboBox.Text = "Выберите нужное подразделение";
+            this.DivisionFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.DivisionFilterComboBox_SelectionChangeCommitted);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label16.Location = new System.Drawing.Point(0, -4);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(117, 17);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Подразделение:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label18.Location = new System.Drawing.Point(0, 91);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(106, 17);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Статус заявки:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label17.Location = new System.Drawing.Point(-1, 43);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(86, 17);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "Тип заявки:";
+            // 
+            // TypeFilterComboBox
+            // 
+            this.TypeFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TypeFilterComboBox.FormattingEnabled = true;
+            this.TypeFilterComboBox.Location = new System.Drawing.Point(3, 64);
+            this.TypeFilterComboBox.Name = "TypeFilterComboBox";
+            this.TypeFilterComboBox.Size = new System.Drawing.Size(264, 24);
+            this.TypeFilterComboBox.TabIndex = 13;
+            this.TypeFilterComboBox.Text = "Выберите нужный тип заявки";
+            this.TypeFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.TypeFilterComboBox_SelectionChangeCommitted);
+            // 
+            // CheckVisitorButton
+            // 
+            this.CheckVisitorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.CheckVisitorButton.FlatAppearance.BorderSize = 0;
+            this.CheckVisitorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckVisitorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.CheckVisitorButton.ForeColor = System.Drawing.Color.Green;
+            this.CheckVisitorButton.Location = new System.Drawing.Point(992, 284);
+            this.CheckVisitorButton.Name = "CheckVisitorButton";
+            this.CheckVisitorButton.Size = new System.Drawing.Size(264, 60);
+            this.CheckVisitorButton.TabIndex = 10;
+            this.CheckVisitorButton.Text = "Проверить посетителя";
+            this.CheckVisitorButton.UseVisualStyleBackColor = false;
+            this.CheckVisitorButton.Click += new System.EventHandler(this.CheckVisitorButton_Click);
+            // 
             // dataSet1
             // 
             this.dataSet1.DataSetName = "DataSet1";
@@ -560,6 +664,7 @@ namespace Sessiya2
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BlackListTableAdapter = null;
             this.tableAdapterManager.DepartmentTableAdapter = this.departmentTableAdapter;
             this.tableAdapterManager.DivisionTableAdapter = this.divisionTableAdapter;
             this.tableAdapterManager.GroupVisitorsTableAdapter = this.groupVisitorsTableAdapter;
@@ -609,109 +714,27 @@ namespace Sessiya2
             // 
             this.workersTableAdapter.ClearBeforeFill = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(992, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 175);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Фильтр заявок";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.StatusFilterComboBox);
-            this.panel4.Controls.Add(this.DivisionFilterComboBox);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.TypeFilterComboBox);
-            this.panel4.Location = new System.Drawing.Point(7, 19);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(278, 147);
-            this.panel4.TabIndex = 0;
-            // 
-            // StatusFilterComboBox
-            // 
-            this.StatusFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusFilterComboBox.FormattingEnabled = true;
-            this.StatusFilterComboBox.Location = new System.Drawing.Point(3, 118);
-            this.StatusFilterComboBox.Name = "StatusFilterComboBox";
-            this.StatusFilterComboBox.Size = new System.Drawing.Size(264, 24);
-            this.StatusFilterComboBox.TabIndex = 15;
-            this.StatusFilterComboBox.Text = "Выберите нужный статус заявки";
-            this.StatusFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.StatusFilterComboBox_SelectionChangeCommitted);
-            // 
-            // DivisionFilterComboBox
-            // 
-            this.DivisionFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DivisionFilterComboBox.FormattingEnabled = true;
-            this.DivisionFilterComboBox.Location = new System.Drawing.Point(3, 16);
-            this.DivisionFilterComboBox.Name = "DivisionFilterComboBox";
-            this.DivisionFilterComboBox.Size = new System.Drawing.Size(264, 24);
-            this.DivisionFilterComboBox.TabIndex = 11;
-            this.DivisionFilterComboBox.Text = "Выберите нужное подразделение";
-            this.DivisionFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.DivisionFilterComboBox_SelectionChangeCommitted);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label16.Location = new System.Drawing.Point(0, -4);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(117, 17);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "Подразделение:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label18.Location = new System.Drawing.Point(0, 98);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(106, 17);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "Статус заявки:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label17.Location = new System.Drawing.Point(0, 49);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 17);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Тип заявки:";
-            // 
-            // TypeFilterComboBox
-            // 
-            this.TypeFilterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TypeFilterComboBox.FormattingEnabled = true;
-            this.TypeFilterComboBox.Location = new System.Drawing.Point(3, 69);
-            this.TypeFilterComboBox.Name = "TypeFilterComboBox";
-            this.TypeFilterComboBox.Size = new System.Drawing.Size(264, 24);
-            this.TypeFilterComboBox.TabIndex = 13;
-            this.TypeFilterComboBox.Text = "Выберите нужный тип заявки";
-            this.TypeFilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.TypeFilterComboBox_SelectionChangeCommitted);
-            // 
             // infoPermitTableAdapter
             // 
             this.infoPermitTableAdapter.ClearBeforeFill = true;
+            // 
+            // blackListTableAdapter
+            // 
+            this.blackListTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1428, 506);
+            this.ClientSize = new System.Drawing.Size(1289, 360);
+            this.Controls.Add(this.CheckVisitorButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.RequestGroupBox);
             this.Controls.Add(this.DivisionGroupBox);
             this.Controls.Add(this.VisitorsGroupBox);
             this.Controls.Add(this.InfoPermitGroupBox);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Заявки посетителей";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -725,10 +748,10 @@ namespace Sessiya2
             this.InfoPermitGroupBox.ResumeLayout(false);
             this.RequestGroupBox.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -802,5 +825,7 @@ namespace Sessiya2
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox TypeFilterComboBox;
         private DataSet1TableAdapters.InfoPermitTableAdapter infoPermitTableAdapter;
+        private System.Windows.Forms.Button CheckVisitorButton;
+        private DataSet1TableAdapters.BlackListTableAdapter blackListTableAdapter;
     }
 }
