@@ -2339,9 +2339,7 @@ namespace Sessiya2 {
             
             private global::System.Data.DataColumn columnIDDivision;
             
-            private global::System.Data.DataColumn columnDate;
-            
-            private global::System.Data.DataColumn columnTime;
+            private global::System.Data.DataColumn columnDateTime;
             
             private global::System.Data.DataColumn columnIDUser;
             
@@ -2414,17 +2412,9 @@ namespace Sessiya2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DateColumn {
+            public global::System.Data.DataColumn DateTimeColumn {
                 get {
-                    return this.columnDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TimeColumn {
-                get {
-                    return this.columnTime;
+                    return this.columnDateTime;
                 }
             }
             
@@ -2513,14 +2503,13 @@ namespace Sessiya2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RequestRow AddRequestRow(TypeRequestRow parentTypeRequestRowByFK_Request_TypeRequest, DivisionRow parentDivisionRowByFK_Request_Division, System.DateTime Date, object Time, UsersRow parentUsersRowByFK_Request_Users, InfoPermitRow parentInfoPermitRowByFK_Request_InfoPermit, StatusRow parentStatusRowByFK_Request_Status, GroupVisitorsRow parentGroupVisitorsRowByFK_Request_GroupVisitors, VisitorsRow parentVisitorsRowByFK_Request_Visitors, string Reason) {
+            public RequestRow AddRequestRow(TypeRequestRow parentTypeRequestRowByFK_Request_TypeRequest, DivisionRow parentDivisionRowByFK_Request_Division, System.DateTime DateTime, UsersRow parentUsersRowByFK_Request_Users, InfoPermitRow parentInfoPermitRowByFK_Request_InfoPermit, StatusRow parentStatusRowByFK_Request_Status, GroupVisitorsRow parentGroupVisitorsRowByFK_Request_GroupVisitors, VisitorsRow parentVisitorsRowByFK_Request_Visitors, string Reason) {
                 RequestRow rowRequestRow = ((RequestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
-                        Date,
-                        Time,
+                        DateTime,
                         null,
                         null,
                         null,
@@ -2534,19 +2523,19 @@ namespace Sessiya2 {
                     columnValuesArray[2] = parentDivisionRowByFK_Request_Division[0];
                 }
                 if ((parentUsersRowByFK_Request_Users != null)) {
-                    columnValuesArray[5] = parentUsersRowByFK_Request_Users[0];
+                    columnValuesArray[4] = parentUsersRowByFK_Request_Users[0];
                 }
                 if ((parentInfoPermitRowByFK_Request_InfoPermit != null)) {
-                    columnValuesArray[6] = parentInfoPermitRowByFK_Request_InfoPermit[0];
+                    columnValuesArray[5] = parentInfoPermitRowByFK_Request_InfoPermit[0];
                 }
                 if ((parentStatusRowByFK_Request_Status != null)) {
-                    columnValuesArray[7] = parentStatusRowByFK_Request_Status[0];
+                    columnValuesArray[6] = parentStatusRowByFK_Request_Status[0];
                 }
                 if ((parentGroupVisitorsRowByFK_Request_GroupVisitors != null)) {
-                    columnValuesArray[8] = parentGroupVisitorsRowByFK_Request_GroupVisitors[0];
+                    columnValuesArray[7] = parentGroupVisitorsRowByFK_Request_GroupVisitors[0];
                 }
                 if ((parentVisitorsRowByFK_Request_Visitors != null)) {
-                    columnValuesArray[9] = parentVisitorsRowByFK_Request_Visitors[0];
+                    columnValuesArray[8] = parentVisitorsRowByFK_Request_Visitors[0];
                 }
                 rowRequestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRequestRow);
@@ -2580,8 +2569,7 @@ namespace Sessiya2 {
                 this.columnID = base.Columns["ID"];
                 this.columnIDType = base.Columns["IDType"];
                 this.columnIDDivision = base.Columns["IDDivision"];
-                this.columnDate = base.Columns["Date"];
-                this.columnTime = base.Columns["Time"];
+                this.columnDateTime = base.Columns["DateTime"];
                 this.columnIDUser = base.Columns["IDUser"];
                 this.columnID_InfoPermit = base.Columns["ID_InfoPermit"];
                 this.columnID_Status = base.Columns["ID_Status"];
@@ -2599,10 +2587,8 @@ namespace Sessiya2 {
                 base.Columns.Add(this.columnIDType);
                 this.columnIDDivision = new global::System.Data.DataColumn("IDDivision", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDDivision);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate);
-                this.columnTime = new global::System.Data.DataColumn("Time", typeof(object), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTime);
+                this.columnDateTime = new global::System.Data.DataColumn("DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTime);
                 this.columnIDUser = new global::System.Data.DataColumn("IDUser", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDUser);
                 this.columnID_InfoPermit = new global::System.Data.DataColumn("ID_InfoPermit", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2625,12 +2611,11 @@ namespace Sessiya2 {
                 this.columnID.Unique = true;
                 this.columnIDType.AllowDBNull = false;
                 this.columnIDDivision.AllowDBNull = false;
-                this.columnDate.AllowDBNull = false;
-                this.columnTime.AllowDBNull = false;
+                this.columnDateTime.AllowDBNull = false;
                 this.columnIDUser.AllowDBNull = false;
                 this.columnID_InfoPermit.AllowDBNull = false;
                 this.columnID_Status.AllowDBNull = false;
-                this.columnReason.MaxLength = 255;
+                this.columnReason.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5188,23 +5173,12 @@ namespace Sessiya2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime Date {
+            public System.DateTime DateTime {
                 get {
-                    return ((global::System.DateTime)(this[this.tableRequest.DateColumn]));
+                    return ((global::System.DateTime)(this[this.tableRequest.DateTimeColumn]));
                 }
                 set {
-                    this[this.tableRequest.DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public object Time {
-                get {
-                    return ((object)(this[this.tableRequest.TimeColumn]));
-                }
-                set {
-                    this[this.tableRequest.TimeColumn] = value;
+                    this[this.tableRequest.DateTimeColumn] = value;
                 }
             }
             
@@ -8389,24 +8363,22 @@ namespace Sessiya2.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("IDType", "IDType");
             tableMapping.ColumnMappings.Add("IDDivision", "IDDivision");
-            tableMapping.ColumnMappings.Add("Date", "Date");
-            tableMapping.ColumnMappings.Add("Time", "Time");
             tableMapping.ColumnMappings.Add("IDUser", "IDUser");
             tableMapping.ColumnMappings.Add("ID_InfoPermit", "ID_InfoPermit");
             tableMapping.ColumnMappings.Add("ID_Status", "ID_Status");
             tableMapping.ColumnMappings.Add("ID_GroupVisitor", "ID_GroupVisitor");
             tableMapping.ColumnMappings.Add("ID_Visitor", "ID_Visitor");
             tableMapping.ColumnMappings.Add("Reason", "Reason");
+            tableMapping.ColumnMappings.Add("DateTime", "DateTime");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [RCH_Khudiakov].[dbo].[Request] WHERE (([ID] = ?) AND ([IDType] = ?) AND ([IDDivision] = ?) AND ([Date] = ?) AND ([Time] = ?) AND ([IDUser] = ?) AND ([ID_InfoPermit] = ?) AND ([ID_Status] = ?) AND ((? = 1 AND [ID_GroupVisitor] IS NULL) OR ([ID_GroupVisitor] = ?)) AND ((? = 1 AND [ID_Visitor] IS NULL) OR ([ID_Visitor] = ?)) AND ((? = 1 AND [Reason] IS NULL) OR ([Reason] = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Request] WHERE (([ID] = ?) AND ([IDType] = ?) AND ([IDDivision] = ?) AND ([DateTime] = ?) AND ([IDUser] = ?) AND ([ID_InfoPermit] = ?) AND ([ID_Status] = ?) AND ((? = 1 AND [ID_GroupVisitor] IS NULL) OR ([ID_GroupVisitor] = ?)) AND ((? = 1 AND [ID_Visitor] IS NULL) OR ([ID_Visitor] = ?)) AND ((? = 1 AND [Reason] IS NULL) OR ([Reason] = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IDType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDType", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IDDivision", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDDivision", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Date", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Time", global::System.Data.OleDb.OleDbType.Variant, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Time", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DateTime", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IDUser", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDUser", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_InfoPermit", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_InfoPermit", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_Status", global::System.Data.DataRowVersion.Original, false, null));
@@ -8418,14 +8390,13 @@ namespace Sessiya2.DataSet1TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Reason", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Reason", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [RCH_Khudiakov].[dbo].[Request] ([IDType], [IDDivision], [Date], [Tim" +
-                "e], [IDUser], [ID_InfoPermit], [ID_Status], [ID_GroupVisitor], [ID_Visitor], [Re" +
-                "ason]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Request] ([IDType], [IDDivision], [DateTime], [IDUser], [ID_InfoPerm" +
+                "it], [ID_Status], [ID_GroupVisitor], [ID_Visitor], [Reason]) VALUES (?, ?, ?, ?," +
+                " ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDType", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDDivision", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDDivision", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Date", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Time", global::System.Data.OleDb.OleDbType.Variant, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Time", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DateTime", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateTime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDUser", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDUser", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_InfoPermit", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_InfoPermit", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_Status", global::System.Data.DataRowVersion.Current, false, null));
@@ -8434,12 +8405,11 @@ namespace Sessiya2.DataSet1TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Reason", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Reason", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [RCH_Khudiakov].[dbo].[Request] SET [IDType] = ?, [IDDivision] = ?, [Date] = ?, [Time] = ?, [IDUser] = ?, [ID_InfoPermit] = ?, [ID_Status] = ?, [ID_GroupVisitor] = ?, [ID_Visitor] = ?, [Reason] = ? WHERE (([ID] = ?) AND ([IDType] = ?) AND ([IDDivision] = ?) AND ([Date] = ?) AND ([Time] = ?) AND ([IDUser] = ?) AND ([ID_InfoPermit] = ?) AND ([ID_Status] = ?) AND ((? = 1 AND [ID_GroupVisitor] IS NULL) OR ([ID_GroupVisitor] = ?)) AND ((? = 1 AND [ID_Visitor] IS NULL) OR ([ID_Visitor] = ?)) AND ((? = 1 AND [Reason] IS NULL) OR ([Reason] = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Request] SET [IDType] = ?, [IDDivision] = ?, [DateTime] = ?, [IDUser] = ?, [ID_InfoPermit] = ?, [ID_Status] = ?, [ID_GroupVisitor] = ?, [ID_Visitor] = ?, [Reason] = ? WHERE (([ID] = ?) AND ([IDType] = ?) AND ([IDDivision] = ?) AND ([DateTime] = ?) AND ([IDUser] = ?) AND ([ID_InfoPermit] = ?) AND ([ID_Status] = ?) AND ((? = 1 AND [ID_GroupVisitor] IS NULL) OR ([ID_GroupVisitor] = ?)) AND ((? = 1 AND [ID_Visitor] IS NULL) OR ([ID_Visitor] = ?)) AND ((? = 1 AND [Reason] IS NULL) OR ([Reason] = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDType", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDDivision", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDDivision", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Date", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Time", global::System.Data.OleDb.OleDbType.Variant, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Time", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DateTime", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateTime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDUser", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDUser", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_InfoPermit", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_InfoPermit", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_Status", global::System.Data.DataRowVersion.Current, false, null));
@@ -8449,8 +8419,7 @@ namespace Sessiya2.DataSet1TableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IDType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDType", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IDDivision", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDDivision", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Date", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Date", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Time", global::System.Data.OleDb.OleDbType.Variant, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Time", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DateTime", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DateTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IDUser", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDUser", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_InfoPermit", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_InfoPermit", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID_Status", global::System.Data.DataRowVersion.Original, false, null));
@@ -8475,8 +8444,8 @@ namespace Sessiya2.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"ID\", \"IDType\", \"IDDivision\", \"Date\", \"Time\", \"IDUser\", \"ID_InfoPermit\", \"" +
-                "ID_Status\", \"ID_GroupVisitor\", \"ID_Visitor\", \"Reason\" FROM \"dbo\".\"Request\"";
+            this._commandCollection[0].CommandText = "SELECT ID, IDType, IDDivision, DateTime, IDUser, ID_InfoPermit, ID_Status, ID_Gro" +
+                "upVisitor, ID_Visitor, Reason FROM Request";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8537,43 +8506,37 @@ namespace Sessiya2.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, int Original_IDType, int Original_IDDivision, System.DateTime Original_Date, object Original_Time, int Original_IDUser, int Original_ID_InfoPermit, int Original_ID_Status, global::System.Nullable<int> Original_ID_GroupVisitor, global::System.Nullable<int> Original_ID_Visitor, string Original_Reason) {
+        public virtual int Delete(int Original_ID, int Original_IDType, int Original_IDDivision, System.DateTime Original_DateTime, int Original_IDUser, int Original_ID_InfoPermit, int Original_ID_Status, global::System.Nullable<int> Original_ID_GroupVisitor, global::System.Nullable<int> Original_ID_Visitor, string Original_Reason) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IDType));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IDDivision));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_Date));
-            if ((Original_Time == null)) {
-                throw new global::System.ArgumentNullException("Original_Time");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(Original_Time));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_IDUser));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ID_InfoPermit));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_ID_Status));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_DateTime));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_IDUser));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ID_InfoPermit));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ID_Status));
             if ((Original_ID_GroupVisitor.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_ID_GroupVisitor.Value));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_ID_GroupVisitor.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_ID_Visitor.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_ID_Visitor.Value));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_ID_Visitor.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_Reason == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Reason));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Reason));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8595,36 +8558,30 @@ namespace Sessiya2.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int IDType, int IDDivision, System.DateTime Date, object Time, int IDUser, int ID_InfoPermit, int ID_Status, global::System.Nullable<int> ID_GroupVisitor, global::System.Nullable<int> ID_Visitor, string Reason) {
+        public virtual int Insert(int IDType, int IDDivision, System.DateTime DateTime, int IDUser, int ID_InfoPermit, int ID_Status, global::System.Nullable<int> ID_GroupVisitor, global::System.Nullable<int> ID_Visitor, string Reason) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IDType));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IDDivision));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Date));
-            if ((Time == null)) {
-                throw new global::System.ArgumentNullException("Time");
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(DateTime));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(IDUser));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ID_InfoPermit));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ID_Status));
+            if ((ID_GroupVisitor.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(ID_GroupVisitor.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((object)(Time));
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(IDUser));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ID_InfoPermit));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(ID_Status));
-            if ((ID_GroupVisitor.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(ID_GroupVisitor.Value));
+            if ((ID_Visitor.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(ID_Visitor.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((ID_Visitor.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(ID_Visitor.Value));
-            }
-            else {
+            if ((Reason == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Reason == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Reason));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Reason));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8649,8 +8606,7 @@ namespace Sessiya2.DataSet1TableAdapters {
         public virtual int Update(
                     int IDType, 
                     int IDDivision, 
-                    System.DateTime Date, 
-                    object Time, 
+                    System.DateTime DateTime, 
                     int IDUser, 
                     int ID_InfoPermit, 
                     int ID_Status, 
@@ -8660,8 +8616,7 @@ namespace Sessiya2.DataSet1TableAdapters {
                     int Original_ID, 
                     int Original_IDType, 
                     int Original_IDDivision, 
-                    System.DateTime Original_Date, 
-                    object Original_Time, 
+                    System.DateTime Original_DateTime, 
                     int Original_IDUser, 
                     int Original_ID_InfoPermit, 
                     int Original_ID_Status, 
@@ -8670,70 +8625,58 @@ namespace Sessiya2.DataSet1TableAdapters {
                     string Original_Reason) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IDType));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IDDivision));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Date));
-            if ((Time == null)) {
-                throw new global::System.ArgumentNullException("Time");
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(DateTime));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(IDUser));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ID_InfoPermit));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ID_Status));
+            if ((ID_GroupVisitor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ID_GroupVisitor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(Time));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(IDUser));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ID_InfoPermit));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ID_Status));
-            if ((ID_GroupVisitor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID_GroupVisitor.Value));
+            if ((ID_Visitor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID_Visitor.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((ID_Visitor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ID_Visitor.Value));
-            }
-            else {
+            if ((Reason == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Reason == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Reason));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Reason));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_IDType));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_IDDivision));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_Date));
-            if ((Original_Time == null)) {
-                throw new global::System.ArgumentNullException("Original_Time");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(Original_Time));
-            }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_IDUser));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_ID_InfoPermit));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_ID_Status));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_IDType));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_IDDivision));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_DateTime));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_IDUser));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ID_InfoPermit));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_ID_Status));
             if ((Original_ID_GroupVisitor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_ID_GroupVisitor.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ID_Visitor.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_ID_GroupVisitor.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_ID_Visitor.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Original_ID_Visitor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_ID_Visitor.Value));
-            }
-            else {
+            if ((Original_Reason == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_Reason == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Reason));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Reason));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

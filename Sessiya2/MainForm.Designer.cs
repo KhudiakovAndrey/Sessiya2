@@ -72,7 +72,6 @@ namespace Sessiya2
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -98,6 +97,7 @@ namespace Sessiya2
             this.workersTableAdapter = new Sessiya2.DataSet1TableAdapters.WorkersTableAdapter();
             this.infoPermitTableAdapter = new Sessiya2.DataSet1TableAdapters.InfoPermitTableAdapter();
             this.blackListTableAdapter = new Sessiya2.DataSet1TableAdapters.BlackListTableAdapter();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3.SuspendLayout();
             this.DivisionGroupBox.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -254,7 +254,7 @@ namespace Sessiya2
             this.VisitorsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.VisitorsGroupBox.Location = new System.Drawing.Point(4, 12);
             this.VisitorsGroupBox.Name = "VisitorsGroupBox";
-            this.VisitorsGroupBox.Size = new System.Drawing.Size(413, 335);
+            this.VisitorsGroupBox.Size = new System.Drawing.Size(413, 357);
             this.VisitorsGroupBox.TabIndex = 4;
             this.VisitorsGroupBox.TabStop = false;
             this.VisitorsGroupBox.Text = "Информация о посетителе";
@@ -285,7 +285,7 @@ namespace Sessiya2
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 306);
+            this.panel1.Size = new System.Drawing.Size(401, 328);
             this.panel1.TabIndex = 0;
             // 
             // BirthdayDateTimePicker
@@ -484,9 +484,9 @@ namespace Sessiya2
             // 
             this.RequestGroupBox.Controls.Add(this.panel5);
             this.RequestGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RequestGroupBox.Location = new System.Drawing.Point(423, 160);
+            this.RequestGroupBox.Location = new System.Drawing.Point(423, 185);
             this.RequestGroupBox.Name = "RequestGroupBox";
-            this.RequestGroupBox.Size = new System.Drawing.Size(549, 184);
+            this.RequestGroupBox.Size = new System.Drawing.Size(864, 184);
             this.RequestGroupBox.TabIndex = 8;
             this.RequestGroupBox.TabStop = false;
             this.RequestGroupBox.Text = "Заявка";
@@ -497,7 +497,7 @@ namespace Sessiya2
             this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel5.Location = new System.Drawing.Point(6, 19);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(534, 155);
+            this.panel5.Size = new System.Drawing.Size(849, 155);
             this.panel5.TabIndex = 0;
             // 
             // RequestListView
@@ -506,15 +506,15 @@ namespace Sessiya2
             this.columnHeader23,
             this.columnHeader24,
             this.columnHeader26,
-            this.columnHeader27,
             this.columnHeader28,
-            this.columnHeader30});
+            this.columnHeader30,
+            this.columnHeader1});
             this.RequestListView.FullRowSelect = true;
             this.RequestListView.GridLines = true;
             this.RequestListView.HideSelection = false;
             this.RequestListView.Location = new System.Drawing.Point(3, 3);
             this.RequestListView.Name = "RequestListView";
-            this.RequestListView.Size = new System.Drawing.Size(522, 152);
+            this.RequestListView.Size = new System.Drawing.Size(843, 152);
             this.RequestListView.TabIndex = 0;
             this.RequestListView.UseCompatibleStateImageBehavior = false;
             this.RequestListView.View = System.Windows.Forms.View.Details;
@@ -532,13 +532,8 @@ namespace Sessiya2
             // 
             // columnHeader26
             // 
-            this.columnHeader26.Text = "Дата";
-            this.columnHeader26.Width = 83;
-            // 
-            // columnHeader27
-            // 
-            this.columnHeader27.Text = "Время";
-            this.columnHeader27.Width = 81;
+            this.columnHeader26.Text = "Дата и время";
+            this.columnHeader26.Width = 117;
             // 
             // columnHeader28
             // 
@@ -644,7 +639,7 @@ namespace Sessiya2
             this.CheckVisitorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckVisitorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.CheckVisitorButton.ForeColor = System.Drawing.Color.Green;
-            this.CheckVisitorButton.Location = new System.Drawing.Point(992, 284);
+            this.CheckVisitorButton.Location = new System.Drawing.Point(978, 365);
             this.CheckVisitorButton.Name = "CheckVisitorButton";
             this.CheckVisitorButton.Size = new System.Drawing.Size(264, 60);
             this.CheckVisitorButton.TabIndex = 10;
@@ -722,11 +717,16 @@ namespace Sessiya2
             // 
             this.blackListTableAdapter.ClearBeforeFill = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Описание";
+            this.columnHeader1.Width = 379;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1289, 360);
+            this.ClientSize = new System.Drawing.Size(1501, 464);
             this.Controls.Add(this.CheckVisitorButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.RequestGroupBox);
@@ -793,7 +793,6 @@ namespace Sessiya2
         private System.Windows.Forms.ColumnHeader columnHeader23;
         private System.Windows.Forms.ColumnHeader columnHeader24;
         private System.Windows.Forms.ColumnHeader columnHeader26;
-        private System.Windows.Forms.ColumnHeader columnHeader27;
         private System.Windows.Forms.ColumnHeader columnHeader28;
         private System.Windows.Forms.ColumnHeader columnHeader30;
         private System.Windows.Forms.TextBox NumberTextBox;
@@ -827,5 +826,6 @@ namespace Sessiya2
         private DataSet1TableAdapters.InfoPermitTableAdapter infoPermitTableAdapter;
         private System.Windows.Forms.Button CheckVisitorButton;
         private DataSet1TableAdapters.BlackListTableAdapter blackListTableAdapter;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

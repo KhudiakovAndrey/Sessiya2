@@ -60,12 +60,12 @@ namespace Sessiya2
         {
                 TempRow = Row.GetParentRow("FK_Request_TypeRequest");
                 items[1] = TempRow["Title"].ToString();
-                items[2] = Convert.ToDateTime(Row["Date"]).ToString("dd.MM.yyyy");
-                items[3] = Convert.ToDateTime(Row["Time"]).ToString("hh:mm:ss");
+                items[2] = Convert.ToDateTime(Row["DateTime"]).ToString("dd.MM.yyyy HH.mm.ss");
                 TempRow = Row.GetParentRow("FK_Request_Users");
-                items[4] = TempRow["Login"].ToString();
+                items[3] = TempRow["Login"].ToString();
                 TempRow = Row.GetParentRow("FK_Request_Status");
-                items[5] = TempRow["Title"].ToString();
+                items[4] = TempRow["Title"].ToString();
+                items[5] = Row["Reason"].ToString();
                 ListViewItem it = new ListViewItem();
                 it.Text = Row["ID"].ToString();
                 it.SubItems.AddRange(items);
@@ -181,12 +181,20 @@ namespace Sessiya2
                 DataRow ReqRow = dataSet1.Request.Select("ID = '" + LastSelectedItem.SubItems[0].Text + "'")[0];
                 ulong ID_User = Convert.ToUInt64(ReqRow["IDUser"]);
                 DataRow[] BlackListRow = dataSet1.BlackList.Select("ID_User = '" + ID_User + "'");
+                ChechReqDialog Dialog = new ChechReqDialog(ReqRow, dataSet1, requestTableAdapter);
                 if (BlackListRow.Length == 0)
                 {
-                    ChechReqDialog Dialog = new ChechReqDialog();
-                    Dialog.ShowDialog();
-                }
+                    Dialog.ShowDialog();                
+                    if (Dialog.DialogResult == DialogResult.OK) FillRequestList();
 
+                }
+                else
+                {
+                    Dialog.BlackList = true;
+                    Msg("Посетитель находится в чёрном списке. Его статус заявки будет автоматически отклонён, и вы не сможете его изменить");
+                    Dialog.ShowDialog();
+                    if (Dialog.DialogResult == DialogResult.OK) FillRequestList();
+                }
             }
             else Msg("Не была выбрана ни одна заявка. Пожалуйства, выберите заявку");
         }
